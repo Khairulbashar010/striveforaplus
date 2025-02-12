@@ -14,9 +14,15 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Khairul Bashar',
+            'email' => 'test@bashar.com',
+        ]);
+
+        \App\Models\SchoolLevel::create(['name' => 'Primary']);
+        \App\Models\SchoolLevel::create(['name' => 'Lower Secondary']);
+        \App\Models\SchoolLevel::create(['name' => 'Upper Secondary']);
+
+        $this->call(TuitionPostingSeeder::class);
     }
 }

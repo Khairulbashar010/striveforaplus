@@ -9,8 +9,9 @@
     ][$type];
 @endphp
 
-<div class="border-l-4 p-4 {{ $classes }}" role="alert">
+<div x-data="{ show: true }" x-init="setTimeout(() => show = false, 2000)" x-show="show"
+    class="mt-8 border-l-4 p-4 {{ $classes }} transition-opacity duration-500 ease-in-out" 
+    role="alert">
     <p class="font-bold">{{ ucfirst($type) }}</p>
     <p>{{ $message }}</p>
 </div>
-

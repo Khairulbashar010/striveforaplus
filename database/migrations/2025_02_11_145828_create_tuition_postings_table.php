@@ -17,6 +17,7 @@ class CreateTuitionPostingsTable extends Migration
             $table->integer('max_students');
             $table->text('description')->nullable();
             $table->string('image')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

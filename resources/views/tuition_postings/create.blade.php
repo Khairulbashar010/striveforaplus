@@ -23,7 +23,7 @@
         </div>
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="fee">
-                Fee
+                Fee (per hour)
             </label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fee" type="number" name="fee" step="0.01" required>
         </div>
@@ -33,23 +33,54 @@
             </label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="max_students" type="number" name="max_students" required>
         </div>
+        
+        <!-- Description Field with CKEditor -->
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
                 Description
             </label>
             <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" name="description" rows="4"></textarea>
         </div>
+
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
                 Image
             </label>
             <input type="file" name="image" id="image" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
+
         <div class="flex items-center justify-between">
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                 Create Posting
             </button>
         </div>
     </form>
-@endsection
 
+    <!-- CKEditor Script -->
+	<script>
+		const {
+			ClassicEditor,
+			Essentials,
+			Bold,
+			Italic,
+			Font,
+			Paragraph
+		} = CKEDITOR;
+
+		ClassicEditor
+			.create( document.querySelector( '#description' ), {
+                licenseKey: '{{ env('CKEDITOR_LICENSE_KEY') }}',
+				plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
+				toolbar: [
+					'undo', 'redo', '|', 'bold', 'italic', '|',
+					'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+				]
+			} )
+				.then( editor => {
+					window.editor = editor;
+				} )
+				.catch( error => {
+					console.error( error );
+				} );
+	</script>
+@endsection

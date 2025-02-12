@@ -9,8 +9,8 @@
     ][$type];
 @endphp
 
-<div x-data="{ show: true }" x-init="setTimeout(() => show = false, 2000)" x-show="show"
-    class="mt-8 border-l-4 p-4 {{ $classes }} transition-opacity duration-500 ease-in-out" 
+<div x-data="{ show: true }" x-init="setTimeout(() => { if (!document.querySelector('.alert:hover')) show = false }, 1000)" x-show="show"
+    class="absolute top-8 right-0 my-8 border-l-4 p-4 {{ $classes }} transition-opacity duration-500 ease-in-out alert" 
     role="alert">
     <p class="font-bold">{{ ucfirst($type) }}</p>
     <p>{{ $message }}</p>

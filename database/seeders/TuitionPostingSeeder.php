@@ -12,9 +12,6 @@ class TuitionPostingSeeder extends Seeder
 {
     public function run()
     {
-        // Ensure you have some tutor users already in your users table.
-        // You might create them manually or via a UserSeeder.
-        // For demonstration, we'll assume at least one tutor exists.
         $tutor = User::first();
 
         if ($tutor) {

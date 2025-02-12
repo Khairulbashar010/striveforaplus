@@ -17,18 +17,17 @@ Follow these steps to install the StriveForAPlus application using Docker:
 
 3. **Build and start the Docker containers:**
     ```bash
-    docker-compose up -d
+    docker compose up
     ```
 
 4. **Access the docker container:**
     ```bash
-    docker-compose exec -it striveforaplus bash
+    docker exec -it striveforaplus bash
     ```
 
 5. **Install dependencies:**
     ```bash
     composer install
-    npm install
     ```
 
 6. **Generate an application key:**
@@ -37,6 +36,7 @@ Follow these steps to install the StriveForAPlus application using Docker:
     ```
 
 7. **Run the database migrations:**
+    Setup the environment keys before running migrate.
     ```bash
     php artisan migrate
     ```

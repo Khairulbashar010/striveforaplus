@@ -111,18 +111,6 @@
             <div class="mt-4 text-sm text-gray-600 text-center">
                 <p>Don't have an account? <a href="{{ route('register') }}" class="text-green-600 hover:underline">Sign up here</a></p>
             </div>
-            @if (session('success'))
-                <x-alert type="success" :message="session('success')" />
-            @endif
-            @if (session('error'))
-                <x-alert type="error" :message="session('error')" />
-            @endif
-            @if (session('warning'))
-                <x-alert type="warning" :message="session('warning')" />
-            @endif
-            @if (session('info'))
-                <x-alert type="info" :message="session('info')" />
-            @endif
         </div>
     </div>
 </div>

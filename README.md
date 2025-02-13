@@ -46,6 +46,11 @@ Follow these steps to install the StriveForAPlus application using Docker:
     php artisan db:seed --class=DatabaseSeeder
     ```
 
+9. **Link the storage:**
+    ```bash
+    php artisan storage:link
+    ```
+
 Your application should now be running at `http://localhost:8080`.
 
 ## License
